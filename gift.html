@@ -1,0 +1,84 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>Gift for My Love</title>
+    <link rel="stylesheet" href="styles.css" />
+    <script defer src="script.js"></script>
+    <link
+      href="https://fonts.googleapis.com/css2?family=Pacifico&display=swap"
+      rel="stylesheet"
+    />
+  </head>
+  <body>
+    <div class="hearts"></div>
+    <div class="container">
+      <h1>My Special Gift for You 💝</h1>
+      <p id="typing-text"></p>
+      <div id="gallery-container" class="hidden">
+        <div class="gallery heart-layout">
+          <img
+            src="photo/image1.jpeg"
+            class="animated-image heart-frame"
+            onclick="showCaption(this, 'Không cành mai nào có thể đẹp như bé...')"
+          />
+          <img
+            src="photo/image2.JPEG"
+            class="animated-image heart-frame"
+            onclick="showCaption(this, 'Không mùa hè nào lại khiến anh cảm thấy cháy bỏng hơn bé...')"
+          />
+          <img
+            src="photo/image3.jpeg"
+            class="animated-image heart-frame"
+            onclick="showCaption(this, 'Không mua thu nào có thể nhẹ nhàng như bé...')"
+          />
+          <img
+            src="photo/image4.PNG"
+            class="animated-image heart-frame"
+            onclick="showCaption(this, 'Không mùa đông nào có thể làm anh giá lạnh khi quen bé...')"
+          />
+          <img
+            src="photo/imagefinal.JPG"
+            class="animated-image heart-frame"
+            onclick="showCaption(this, '1 cuộc đời... 2 đứa mình sẽ bên nhau... 3 ngày hôm qua, hôm nay, ngày mai... 4 mùa trong năm... 5 năm đã qua thì ta mãi bên nhau thế này nhen bé iu......')"
+          />
+        </div>
+      </div>
+      <p id="caption-text" class="caption"></p>
+      <button class="back-button" onclick="goBack()">Back to Main Page</button>
+    </div>
+    <script>
+      const text =
+        "Bé iu à, thời gian trôi qua nhanh thật đọ, thế mà đã 5 năm chúng mình quen nhau rồi, ngày valentine này anh chúc bé iu của anh sẽ luôn xinh đẹp, khỏe mạnh và sẽ lun có anh bên bé vượt mọi chông gại ạ...";
+      let index = 0;
+      function typeText() {
+        if (index < text.length) {
+          document.getElementById("typing-text").innerHTML +=
+            text.charAt(index);
+          index++;
+          setTimeout(typeText, 50);
+        } else {
+          document
+            .getElementById("gallery-container")
+            .classList.remove("hidden");
+        }
+      }
+      document.addEventListener("DOMContentLoaded", typeText);
+
+      function showCaption(img, caption) {
+        let captionElement = document.getElementById("caption-text");
+        captionElement.innerHTML = "";
+        let capIndex = 0;
+        function typeCaption() {
+          if (capIndex < caption.length) {
+            captionElement.innerHTML += caption.charAt(capIndex);
+            capIndex++;
+            setTimeout(typeCaption, 50);
+          }
+        }
+        typeCaption();
+      }
+    </script>
+  </body>
+</html>
